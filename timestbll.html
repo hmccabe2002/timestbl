@@ -1,0 +1,92 @@
+<!--
+   Program Name: Multiplication Table
+   Developer: Hunter A. McCabe
+   Date last modified: 2019.04.09
+-->
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Multiplication Table</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Multiplication Table"> <!-- Description of the Web Page -->
+    <meta name="keywords" content="times,multiply,table,math"> <!-- Keywords separated by commas -->
+    <meta name="author" content="Hunter McCabe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        td {
+            text-align: center;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+    <script>
+        function timesTbl() {
+            /* UNCOMMENT LINE BELOW TO MAKE THE USER INPUT THE NUMBER OF ROWS */
+            //var r = prompt("Enter number of rows:");
+            var r = 9;
+            var color_td; //Declare a variable for the cell color
+            document.write("<table>"); //Print the tag <table>
+
+            for (var i = 1; i <= r; i++) { // for (declaration; condition; increment)
+                
+                document.write("<tr style='height:30px;'>"); //Print the <td> tag 
+
+                for (var j = 1; j <= r; j++) { //for loop 
+                    //Everything Below is just for colors
+                    if (j == 1 || i == 1) {
+                        color_td = "#888";
+                    } else if (i == j) {
+                        color_td = "#BBB"
+                    } else {
+                        color_td = "#fff";
+                    }
+
+                    document.write("<td style='width:30px;background-color:" + color_td + "'>" + i * j + "</td>"); //Print the cells
+                }
+                document.write("</tr>"); //Closing </tr> tag
+            }
+
+            document.write("</table>"); //Closing </table> tag
+        }
+        timesTbl();
+//CONSOLE TIMES TBL
+var result = ' x   ';
+
+function buff(val){
+  var buff = '';
+  var pad = 4 - val;
+    while( pad-- > 0 )
+            buff += ' ';            
+  return buff;
+}
+
+for (var i = 0; i < 11; i++) {
+
+    for (var j = 0; j < 11; j++) {
+
+        if(i == 0 && j > 0){
+          result += '[' + j + ']' + buff((j+'').length+2);
+        } 
+        else if(j == 0 && i>0){
+          result += '[' + i + ']';
+        } 
+        else if(i>0 && j>0){
+        result += buff((i*j+'').length ) + i*j;
+        }
+    }
+    result += '\n'
+}
+console.log(result);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
